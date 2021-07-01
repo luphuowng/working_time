@@ -25,3 +25,15 @@ Route::group([
     Route::post('/user-profile', [AuthController::class, 'userProfile']);
 });
 
+
+// Route::group([
+//     'middleware' => 'api',
+//     'prefix' => 'overtime'
+// ], function ($router){
+//     Route::get('/getdata', [OvertimeController::class, 'getdata']);
+//     Route::get('/createOT', [OvertimeController::class, 'createOT']);
+//     Route::post('/storeOT', [OvertimeController::class, 'storeOT']);
+
+// });
+
+
