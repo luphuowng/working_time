@@ -31,12 +31,12 @@ class WorkingtimeController extends Controller
         return response()->json($data);
     }
 
-    public function createWT(){        
+    public function createWT(){
         $data = workingtime::join('users', 'users.id', '=' ,'workingtime.id_user')->select('users.id','users.name', 'workingtime.*')->get()->toArray();
         return response()->json($data);
     }
 
-    
+
     public function storeWorkingtime(Request $request)
     {
         $wt = new workingtime();
@@ -62,7 +62,7 @@ class WorkingtimeController extends Controller
         $data = workingtime::join('users', 'users.id', '=' ,'workingtime.id_user')->select('users.id','users.name','users.phone_number','users.email', 'workingtime.*')->where('workingtime.id', $id)->get()->toArray();
         return response()->json($data);
     }
-    
+
 
     public function updateWorkingtime(Request $request, $id)
     {
@@ -73,7 +73,7 @@ class WorkingtimeController extends Controller
         return reponse()->json($data);
     }
 
-    
+
     public function destroy($id)
     {
         //
