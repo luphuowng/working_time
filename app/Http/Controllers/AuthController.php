@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Validator;
-
+use Socialite;
 
 class AuthController extends Controller
 {
@@ -22,7 +22,7 @@ class AuthController extends Controller
         // $validator = Validator::make($request->all(),[
         //     'email' => 'required|email',
         //     'password' => 'required|string|min:6',
-        // ]); //:(hihi
+        // ]);
 
         // if($validator->fails()){
         //     return response()->json($validator->error(), 422);
