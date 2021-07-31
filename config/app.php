@@ -161,7 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        
+
         /*
          * Application Service Providers...
          */
@@ -175,6 +175,7 @@ return [
          * Package Service Providers...
          */
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
     ],
 
     /*
@@ -231,7 +232,9 @@ return [
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
 
         // Excel
-        'Excel' => Maatwebsite\Excel\Facades\Excel::class,  
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        //login with gitlab
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];
