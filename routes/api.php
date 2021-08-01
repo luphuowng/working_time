@@ -22,6 +22,8 @@ use App\Http\Controllers\SkillOfStaffController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router){
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/register', [AuthController::class, 'register']);
