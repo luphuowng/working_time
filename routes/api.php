@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TypeAccController;
 use App\Http\Controllers\OvertimeController;
 use App\Http\Controllers\WorkingtimeController;
 use App\Http\Controllers\DayoffController;
@@ -21,9 +22,14 @@ use App\Http\Controllers\SkillOfStaffController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router){
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/register', [AuthController::class, 'register']);
+    Route::get('/getType', [AuthController::class, 'getType']);
+    Route::post('/storeType', [AuthController::class, 'storeType']);
+    Route::post('/updateType/{id_type}', [AuthController::class, 'updateType']);
+    Route::post('/destroyType/{id_type}', [AuthController::class, 'destroyType']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::post('/user-profile', [AuthController::class, 'userProfile']);
