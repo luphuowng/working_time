@@ -14,8 +14,20 @@ class TypeAccController extends Controller
 
     public function getType()
     {
-        $data = type_acc::select('type_acc.id_type','type_acc.type_name')->get()->toArray();
-        return response()->json($data);
+        $data = DB::table('type_acc')->get();
+        if($data) {
+            $res = [
+                'status' => 200,
+                'des' => 'get data successfully'
+            ];
+            return response()->json($res, 200);
+        }else {
+            $res = [
+                'status' => 401,
+                'des' => 'Error code'
+            ];
+            return response()->json($res, 401);
+        }
     }
 
 
