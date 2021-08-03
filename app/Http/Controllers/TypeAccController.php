@@ -16,11 +16,7 @@ class TypeAccController extends Controller
     {
         $data = DB::table('type_acc')->get();
         if($data) {
-            $res = [
-                'status' => 200,
-                'des' => 'get data successfully'
-            ];
-            return response()->json($res, 200);
+            return response()->json($data);
         }else {
             $res = [
                 'status' => 401,
@@ -28,6 +24,7 @@ class TypeAccController extends Controller
             ];
             return response()->json($res, 401);
         }
+        return response()->json($data);
     }
 
 
