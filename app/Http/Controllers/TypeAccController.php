@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Project;
+use App\Models\type_acc;
 use App\Models\User;
 use Session;
 use Carbon\Carbon;
@@ -13,7 +13,7 @@ class TypeAccController extends Controller
 
     public function getType()
     {
-        $data = type_acc::select('type_acc.id_type','type_acc.type_name')->where('status',0)->get()->toArray();
+        $data = type_acc::select('type_acc.id_type','type_acc.type_name')->get()->toArray();
         return response()->json($data);
     }
 
