@@ -75,6 +75,7 @@ Route::group([], function ($router){
 });
 
 Route::group([], function ($router){
+        Route::get('getType', [TypeAccController::class, 'getType']);
         Route::post('/forget-password', [CheckChangePassword::class, 'forgetPassword']);
         Route::post('/check-code', [CheckChangePassword::class, 'checkCode']);
         Route::post('/change-password', [CheckChangePassword::class, 'changePassword']);            //OT api-----son.le
