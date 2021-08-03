@@ -13,7 +13,6 @@ class Social extends Model
 
     protected $fillable = [
         'type_name',
-        'id_type'
     ];
 
 }
