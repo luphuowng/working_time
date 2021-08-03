@@ -13,7 +13,7 @@ class TypeAccController extends Controller
 
     public function getType()
     {
-        $data = type_acc::select('id_type','type_name')->get()->toArray();
+        $data = type_acc::select('type_acc.id_type','type_acc.type_name')->get()->toArray();
         return response()->json($data);
     }
 
