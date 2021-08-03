@@ -27,7 +27,7 @@ use App\Http\Controllers\SkillOfStaffController;
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router){
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/register', [AuthController::class, 'register']);
-    Route::get('/getType', [TypeAccController::class, 'getType']);
+    //Route::get('/getType', [TypeAccController::class, 'getType']);
     Route::post('/storeType', [TypeAccController::class, 'storeType']);
     Route::post('/updateType/{id_type}', [TypeAccController::class, 'updateType']);
     Route::post('/destroyType/{id_type}', [TypeAccController::class, 'destroyType']);
@@ -42,8 +42,8 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router){
 });
 
 Route::group([], function ($router){
-    Route::post('/register', [AuthController::class, 'register']);
-    Route::get('/getType', [TypeAccController::class, 'getType']);
+    Route::post('register', [AuthController::class, 'register']);
+    Route::get('getType', [TypeAccController::class, 'getType']);
     // route OT
     // Route::post('ExportExcel', [OvertimeController::class, 'excel']);
     Route::get('destroyOT/{id}', [OvertimeController::class, 'destroyOT']);
