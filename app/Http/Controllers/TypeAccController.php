@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\type_acc;
-use App\Models\User;
+use DB;
 use Session;
 use Carbon\Carbon;
+use PhpParser\Node\Stmt\TryCatch;
 
 class TypeAccController extends Controller
 {
@@ -20,9 +21,24 @@ class TypeAccController extends Controller
 
     public function storeType(Request $request)
     {
-        $ta = new type_acc();
-        $ta->type_name = $request->type_name;
-        $ta->save();
+        $type_name = $request->type_name;
+        if($type_name) {
+            DB::table('type_acc')->insert([
+                'type_name' => $type_name
+            ]);
+
+            $res = [
+                'status' => 200,
+                'des' => 'Save type success'
+            ];
+            return response()->json($res, 200);
+        }else {
+            $res = [
+                'status' => 401,
+                'des' => 'save type fail'
+            ];
+            return response()->json($res, 401);
+        }
     }
 
     public function updateType(Request $request, $id_type)
