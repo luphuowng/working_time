@@ -42,7 +42,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router){
 });
 
 Route::group([], function ($router){
-    
+    Route::post('/storeType', [TypeAccController::class, 'storeType']);
     Route::get('getType', [TypeAccController::class, 'getType']);
     // route OT
     // Route::post('ExportExcel', [OvertimeController::class, 'excel']);
