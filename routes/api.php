@@ -42,6 +42,8 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router){
 });
 
 Route::group([], function ($router){
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::get('/getType', [AuthController::class, 'getType']);
     // route OT
     // Route::post('ExportExcel', [OvertimeController::class, 'excel']);
     Route::get('destroyOT/{id}', [OvertimeController::class, 'destroyOT']);
