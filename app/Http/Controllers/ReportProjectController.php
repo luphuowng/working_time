@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\models\ReportProject;
+use App\Models\ReportProject;
 use App\Models\workingtime;
 use App\Models\User;
 use App\Models\Project;
