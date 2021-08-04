@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\type_acc;
 use Validator;
 use Socialite;
 
@@ -105,5 +106,11 @@ class AuthController extends Controller
             'expires_in' => auth()->factory()->getTTL() * 60,
             'user' => auth()->user()
         ]);
+    }
+
+    public function getUsers()
+    {
+        $data = User::join('type_acc','type_acc.id_type','=','users.id_type')->select('type_name','users.*')->get()->toArray();
+        return response()->json($data);
     }
 }

@@ -45,6 +45,7 @@ Route::group([], function ($router){
     Route::get('/getType', [TypeAccController::class, 'getType']);
     Route::post('/storeType', [TypeAccController::class, 'storeType']);
     Route::post('/updateType/{id_type}', [TypeAccController::class, 'updateType']);
+    Route::get('/getUsers', [AuthController::class, 'getUsers']);
     // route OT
     // Route::post('ExportExcel', [OvertimeController::class, 'excel']);
     Route::get('destroyOT/{id}', [OvertimeController::class, 'destroyOT']);
