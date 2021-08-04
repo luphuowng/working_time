@@ -110,7 +110,7 @@ class AuthController extends Controller
 
     public function getUsers()
     {
-        $data = User::join('type_acc','type_acc.id_type','=','users.id_type')->select('type_name','users.*')->get()->toArray();
+        $data = User::join('type_acc','type_acc.id_type','=','users.id_type')->select('type_acc.type_name','users.*')->get()->toArray();
         return response()->json($data);
     }
 }
