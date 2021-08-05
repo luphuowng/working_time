@@ -40,7 +40,8 @@ class WorkingtimeController extends Controller
     public function storeWorkingtime(Request $request)
     {
         $wt = new workingtime();
-        $wt->check_in = $request->check_in;
+        // $wt->check_in = $request->check_in;
+        $wt->check_in = Carbon::now();
         $wt->check_out = $request->check_out;
         $wt->work = $request->work;
         $wt->note = $request->note;
@@ -48,6 +49,7 @@ class WorkingtimeController extends Controller
         $wt->id_project = $request->id_project;
         $wt->save();
     }
+
 
     public function showWorkingtime()
     {
@@ -67,7 +69,7 @@ class WorkingtimeController extends Controller
     public function updateWorkingtime(Request $request, $id)
     {
         $data = workingtime::find($id);
-        $data->check_out = $request->check_out;
+        $data->check_out = Carbon::now();
         $data->note = $request->note;
         $data->save();
         return reponse()->json($data);
