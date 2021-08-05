@@ -39,6 +39,8 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router){
     Route::get('reportWorkingtime', [WorkingtimeController::class, 'getReportWT']);
     Route::get('editWorkingtime/{id}', [WorkingtimeController::class, 'editWorkingtime']);
     Route::get('showWorkingtime', [WorkingtimeController::class, 'showWorkingtime']);
+    Route::get('login-gitlab', [LoginController::class, 'redirectToProvider']);
+    Route::get('login/gitlab/callback', [LoginController::class, 'handleProviderCallback']);
 });
 
 Route::group([], function ($router){
@@ -46,6 +48,8 @@ Route::group([], function ($router){
     Route::post('/storeType', [TypeAccController::class, 'storeType']);
     Route::post('/updateType/{id_type}', [TypeAccController::class, 'updateType']);
     Route::get('/getUsers', [AuthController::class, 'getUsers']);
+    Route::post('/deleteUser/{id}', [AuthController::class, 'deleteUser']);
+    Route::get('/updateUsers/{id}', [AuthController::class, 'updateUsers']);
     // route OT
     // Route::post('ExportExcel', [OvertimeController::class, 'excel']);
     Route::get('destroyOT/{id}', [OvertimeController::class, 'destroyOT']);
@@ -77,6 +81,8 @@ Route::group([], function ($router){
 });
 
 Route::group([], function ($router){
+        Route::get('login-gitlab', [LoginController::class, 'redirectToProvider']);
+        Route::get('login/gitlab/callback', [LoginController::class, 'handleProviderCallback']);
         Route::get('/getType', [TypeAccController::class, 'getType']);
         Route::post('/storeType', [TypeAccController::class, 'storeType']);
         Route::post('/updateType/{id_type}', [TypeAccController::class, 'updateType']);

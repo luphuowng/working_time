@@ -113,4 +113,24 @@ class AuthController extends Controller
         $data = User::join('type_acc','type_acc.id_type','=','users.id_type')->select('type_acc.type_name','users.*')->get()->toArray();
         return response()->json($data);
     }
+
+    public function updateUsers(Request $request, $id)
+    {
+        $data = User::find($id);
+        $data->username = $request->username;
+        $data->name = $request->name;
+        $data->sex = $request->sex;
+        $data->phone_number = $request->phone_number;
+        $data->address = $request->address;
+        $data->id_type = $request->id_type;
+        $data->save();
+        return reponse()->json($data);
+    }
+
+    public function deleteUser($id)
+    {
+        $data = User::find($id);
+        $data->delete();
+        return response()->json($data);
+    }
 }
