@@ -50,6 +50,7 @@ Route::group([], function ($router){
     Route::get('/getUsers', [AuthController::class, 'getUsers']);
     Route::post('/deleteUser/{id}', [AuthController::class, 'deleteUser']);
     Route::get('/updateUsers/{id}', [AuthController::class, 'updateUsers']);
+    Route::get('/editUser/{$id}', [AuthController::class, 'editUser']);
     // route OT
     // Route::post('ExportExcel', [OvertimeController::class, 'excel']);
     Route::get('destroyOT/{id}', [OvertimeController::class, 'destroyOT']);
