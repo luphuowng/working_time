@@ -133,4 +133,10 @@ class AuthController extends Controller
         $data->delete();
         return response()->json($data);
     }
+
+    public function editUser($id)
+    {
+        $data = User::join('type_acc','type_acc.id_type','=','users.id_type')->select('type_acc.type_name','users.*')->where('users.id', $id)->get()->toArray();
+        return response()->json($data);
+    }
 }
