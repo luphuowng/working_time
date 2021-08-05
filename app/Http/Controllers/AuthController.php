@@ -136,7 +136,7 @@ class AuthController extends Controller
 
     public function editUser($id)
     {
-        $data = User::join('type_acc','type_acc.id_type','=','users.id_type')->select('type_acc.type_name','users.*')->where('users.id', $id)->get()->toArray();
+        $data = User::join('type_acc','type_acc.id_type','=','users.id_type')->select('type_acc.type_name','type_acc.id_type','users.*')->where('users.id', $id)->get()->toArray();
         return response()->json($data);
     }
 }
