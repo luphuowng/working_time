@@ -11,6 +11,11 @@ use PhpParser\Node\Stmt\TryCatch;
 
 class TypeAccController extends Controller
 {
+    public function getTypes()
+    {
+        $data = type_acc::select('type_acc.*')->get()->toArray();
+        return response()->json($data);
+    }
 
     public function getType()
     {

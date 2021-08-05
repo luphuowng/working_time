@@ -44,6 +44,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router){
 });
 
 Route::group([], function ($router){
+    Route::get('/getTypes', [TypeAccController::class, 'getTypes']);
     Route::get('/getType', [TypeAccController::class, 'getType']);
     Route::post('/storeType', [TypeAccController::class, 'storeType']);
     Route::post('/updateType/{id_type}', [TypeAccController::class, 'updateType']);
