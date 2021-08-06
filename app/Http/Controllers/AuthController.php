@@ -117,7 +117,6 @@ class AuthController extends Controller
     public function updateUsers(Request $request, $id)
     {
         $data = User::find($id);
-        $data->username = $request->username;
         $data->name = $request->name;
         $data->sex = $request->sex;
         $data->phone_number = $request->phone_number;
